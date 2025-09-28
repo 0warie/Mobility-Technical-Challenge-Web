@@ -1,7 +1,7 @@
 <template>
   <header></header>
 
-  <main>eee</main>
+  <main class="bg-gray-950"><h1 class="text-3xl bg-blue font-bold underline">Hello world!</h1></main>
 </template>
 
 <style scoped></style>
