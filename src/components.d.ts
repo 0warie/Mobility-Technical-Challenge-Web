@@ -8,7 +8,7 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
-    Branding_logo: typeof import('./components/branding_logo.vue')['default']
-    WelcomeItem: typeof import('./components/WelcomeItem.vue')['default']
+    BrandingLogo: typeof import('./components/BrandingLogo.vue')['default']
+    WeatherSearch: typeof import('./components/WeatherSearch.vue')['default']
   }
 }
