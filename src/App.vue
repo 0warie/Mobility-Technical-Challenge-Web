@@ -1,7 +1,9 @@
 <template>
   <header></header>
 
-  <main class="bg-gray-950"><h1 class="text-3xl bg-blue font-bold underline">ForecastIQ</h1></main>
+  <main class="bg-gray-900 h-dvh text-white">
+    <branding_logo />
+  </main>
 </template>
 
 <style scoped></style>
