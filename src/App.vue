@@ -1,9 +1,8 @@
 <template>
-  <header></header>
-
-  <main class="bg-gray-900 h-dvh text-white">
-    <branding_logo />
-  </main>
+  <div class="flex bg-gray-900 h-dvh text-white flex-col p-[calc(1.25*1em)]">
+    <header><branding_logo /></header>
+    <main class=" "></main>
+  </div>
 </template>
 
 <style scoped></style>
