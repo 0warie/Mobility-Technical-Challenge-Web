@@ -1,7 +1,9 @@
 <template>
   <div class="flex bg-gray-900 h-dvh text-white flex-col p-[calc(1.25*1em)]">
     <header><branding-logo /></header>
-    <main class=" "></main>
+    <main class=" ">
+      <weather-search />
+    </main>
   </div>
 </template>
 
