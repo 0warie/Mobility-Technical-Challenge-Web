@@ -16,14 +16,14 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 import { DataSource } from '@/data/datasources/datasource';
-import type { LocationResponseModel } from '@/data/models/location';
+import type { SavedLocationResponseModel } from '@/data/models/location';
 
 const datasource = new DataSource();
 
-const locations = ref<LocationResponseModel[] | null>(null);
+const locations = ref<SavedLocationResponseModel[] | null>(null);
 
 async function loadSaved() {
-  locations.value = await datasource.getLocations();
+  locations.value = await datasource.getSavedLocations();
 }
 onMounted(loadSaved);
 </script>

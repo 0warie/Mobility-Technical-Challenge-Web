@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useConfig } from '@/composables/config';
-import type { LocationResponseModel } from '../models/location';
+import type { SavedLocationResponseModel } from '../models/location';
 
 const config = useConfig();
 
@@ -9,8 +9,12 @@ const apiAxios = axios.create({
 });
 
 export class DataSource {
-  async getLocations() {
-    const res = await apiAxios.get<LocationResponseModel[]>('locations');
-    return res.data;
+  async getSavedLocations() {
+    const { data } = await apiAxios.get<SavedLocationResponseModel[]>('locations');
+
+    return data.map(({ createdUtc, ...rest }) => ({
+      ...rest,
+      createdUtc: new Date(createdUtc),
+    }));
   }
 }
