@@ -17,4 +17,16 @@ export class LocationsDataSource {
       createdUtc: new Date(createdUtc),
     }));
   }
+
+  async saveLocation(city: string, country: string, cityId: number) {
+    await apiAxios.post<SavedLocationModel[]>('locations', {
+      city,
+      country,
+      cityId,
+    });
+  }
+
+  async deleteSavedLocation(id: number) {
+    await apiAxios.delete<SavedLocationModel[]>(`locations/${id}`);
+  }
 }

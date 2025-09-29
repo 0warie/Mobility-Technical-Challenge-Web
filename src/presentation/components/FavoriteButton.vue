@@ -1,10 +1,10 @@
 <template>
-  <button :title="buttonLabel" class="size-6 flex items-center justify-center">
+  <button @click="onClick" :title="buttonLabel" class="size-6 flex items-center justify-center">
     <component
       aria-hidden="true"
-      :is="favourite ? starFilled : star"
+      :is="selectedLocationSaved ? starFilled : star"
       class="star"
-      :class="{ selected: favourite }"
+      :class="{ selected: selectedLocationSaved }"
     />
     <span class="sr-only">{{ buttonLabel }}</span>
   </button>
@@ -18,15 +18,15 @@ import starFilled from '@/assets/icons/star_fill.svg';
 import { computed } from 'vue';
 
 const weather = useWeatherStore();
-const { selectedLocation, savedLocations } = storeToRefs(weather);
-
-const favourite = computed(() =>
-  savedLocations.value?.some((location) => location.cityId === selectedLocation.value?.cityId)
-);
+const { selectedLocationSaved } = storeToRefs(weather);
 
 const buttonLabel = computed(() =>
-  favourite.value ? 'Remove from favourites' : 'Add to favourites'
+  selectedLocationSaved.value ? 'Remove from favourites' : 'Add to favourites'
 );
+
+const onClick = () => {
+  weather.selectedLocationSaveToggle();
+};
 </script>
 <style scoped>
 button:hover .star,
