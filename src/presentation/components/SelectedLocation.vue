@@ -7,7 +7,16 @@
         </h3>
         <favorite-button />
       </div>
-      <span class="text-3xl pl-2 font-medium">{{ selectedLocation.tempC }}°C</span>
+      <div class="text-3xl pl-1 font-medium flex flex-row items-center gap-2">
+        <img
+          v-if="selectedLocation.icon"
+          class="size-[50px]"
+          aria-hidden="true"
+          alt=""
+          :src="`https://openweathermap.org/img/wn/${selectedLocation.icon}@2x.png`"
+        />
+        <span>{{ selectedLocation.tempC }}°C</span>
+      </div>
       <div class="flex flex-col gap-1">
         <span class="font-bold"
           >Feels like {{ selectedLocation.feelsLikeC }}°C.

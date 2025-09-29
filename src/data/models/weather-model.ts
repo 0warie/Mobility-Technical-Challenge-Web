@@ -5,6 +5,7 @@ export interface WeatherModel {
   city: string;
   countryCode: string;
   coordinates: Coordinates;
+  icon: string;
   tempC: number;
   conditions: string;
   feelsLikeC: number;
