@@ -1,4 +1,3 @@
-<!-- src/components/WeatherSearch.vue -->
 <template>
   <div class="p-4 grid gap-4">
     <aside>

@@ -1,16 +1,12 @@
-<!-- src/components/WeatherSearch.vue -->
 <template>
-  <div class="p-4 grid gap-4">
-    <aside>
-      <h3>Saved</h3>
-      <ul>
-        <li class="bg-" v-for="loc in locations" :key="loc.id">
-          <button>{{ loc.city }} ({{ loc.countryCode }})</button>
-          {{ loc }}
-        </li>
-      </ul>
-    </aside>
-  </div>
+  <section class="flex flex-col gap-4">
+    <h3 class="text-2xl font-bold">Favorites</h3>
+    <ul class="flex flex-row gap-3 flex-wrap">
+      <li v-for="loc in locations" :key="loc.id">
+        <favorite-location-item :city="loc.city" :country-code="loc.countryCode" />
+      </li>
+    </ul>
+  </section>
 </template>
 
 <script setup lang="ts">

@@ -9,7 +9,8 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     BrandingLogo: typeof import('./components/BrandingLogo.vue')['default']
-    SavedLocations: typeof import('./components/SavedLocations.vue')['default']
+    FavoriteLocationItem: typeof import('./components/FavoriteLocations/FavoriteLocationItem.vue')['default']
+    FavoriteLocations: typeof import('./components/FavoriteLocations/FavoriteLocations.vue')['default']
     WeatherSearch: typeof import('./components/WeatherSearch.vue')['default']
   }
 }
