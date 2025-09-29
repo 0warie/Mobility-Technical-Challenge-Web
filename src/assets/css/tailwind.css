@@ -16,12 +16,14 @@
   --color-cyan-light: #b4f9f8;
   --color-cyan-alt: #2ac3de;
   --color-yellow-muted: #cfc9c2;
+  --color-blue-muted: #42548e;
 
   /* greyscale using Tokyo Night greys */
   --color-grey-100: #a9b1d6;
   --color-grey-200: #9aa5ce;
   --color-grey-400: #565f89;
-  --color-grey-600: #414868;
+  --color-grey-600: #666f9d;
+  --color-grey-700: #414868;
   --color-grey-800: #24283b;
   --color-grey-900: #1a1b26;
 }

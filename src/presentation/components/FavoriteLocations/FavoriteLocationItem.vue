@@ -1,8 +1,13 @@
 <template>
   <div>
-    <button @click="onSelect" class="bg-grey-600 rounded-lg py-6 px-4 flex flex-col basis-0 shrink grow cursor-pointer button">
+    <button
+      :aria-selected="selected"
+      @click="onSelect"
+      class="button"
+      :class="buttonVariant({ selected })"
+    >
       <span class="flag" aria-hidden="true">{{ getFlagEmoji(item.countryCode) }}</span>
-      <span class="text">{{ item.city }}, {{ item.countryCode }}</span>
+      <span class="text font-bold">{{ item.city }}, {{ item.countryCode }}</span>
     </button>
   </div>
 </template>
@@ -10,9 +15,11 @@
 <script setup lang="ts">
 import { getFlagEmoji } from '@/common/helpers/get-flag-emoji';
 import type { SavedLocationModel } from '@/data/models/saved-location-model';
+import { cva } from 'class-variance-authority';
 
 const props = defineProps<{
   item: SavedLocationModel;
+  selected?: boolean;
 }>();
 
 const emit = defineEmits<{
@@ -22,6 +29,21 @@ const emit = defineEmits<{
 const onSelect = () => {
   emit('select', props.item);
 };
+
+const buttonVariant = cva(
+  'rounded-lg text-white py-6 px-4 flex flex-col basis-0 shrink grow cursor-pointer',
+  {
+    variants: {
+      selected: {
+        false: 'bg-gray-600',
+        true: 'bg-blue-muted',
+      },
+    },
+    defaultVariants: {
+      selected: false,
+    },
+  }
+);
 </script>
 
 <style lang="css" scoped>

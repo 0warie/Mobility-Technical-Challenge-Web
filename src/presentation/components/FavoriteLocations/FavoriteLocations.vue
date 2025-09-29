@@ -3,7 +3,7 @@
     <h3 class="text-2xl font-bold">Favorites</h3>
     <ul class="flex flex-row gap-3 flex-wrap">
       <li v-for="location in savedLocations" :key="location.id">
-        <favorite-location-item @select="onSelect" :item="location" />
+        <favorite-location-item :selected="location.cityId === selectedLocation?.cityId" @select="onSelect" :item="location" />
       </li>
     </ul>
   </section>
@@ -16,7 +16,7 @@ import { storeToRefs } from 'pinia';
 import type { SavedLocationModel } from '@/data/models/saved-location-model';
 
 const weather = useWeatherStore();
-const { savedLocations } = storeToRefs(weather);
+const { savedLocations, selectedLocation } = storeToRefs(weather);
 
 const onSelect = (location: SavedLocationModel) => {
   weather.selectByCityId(location.cityId);
