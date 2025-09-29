@@ -1,28 +1,5 @@
 <template>
-  <div class="p-4 grid gap-4">
-    <aside>
-      <h2>Saved</h2>
-      <ul>
-        <li class="bg-" v-for="loc in locations" :key="loc.id">
-          <button>{{ loc.city }} ({{ loc.countryCode }})</button>
-          {{ loc }}
-        </li>
-      </ul>
-    </aside>
-  </div>
+  <div class="p-4 grid gap-4"></div>
 </template>
 
-<script setup lang="ts">
-import { ref, onMounted } from 'vue';
-import { DataSource } from '@/data/datasources/datasource';
-import type { SavedLocationModel } from '@/data/models/saved-location';
-
-const datasource = new DataSource();
-
-const locations = ref<SavedLocationModel[] | null>(null);
-
-async function loadSaved() {
-  locations.value = await datasource.getSavedLocations();
-}
-onMounted(loadSaved);
-</script>
+<script setup lang="ts"></script>
