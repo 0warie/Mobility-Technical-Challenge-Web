@@ -1,15 +1,13 @@
 <template>
-  <div class="p-4 grid gap-4">
-    <aside>
-      <h2>Saved</h2>
-      <ul>
-        <li class="bg-" v-for="loc in locations" :key="loc.id">
-          <button>{{ loc.city }} ({{ loc.countryCode }})</button>
-          {{ loc }}
-        </li>
-      </ul>
-    </aside>
-  </div>
+  <section class="flex flex-col gap-4">
+    <h3 class="text-2xl font-bold">Favorites</h3>
+    <ul>
+      <li class="" v-for="loc in locations" :key="loc.id">
+        <button>{{ loc.city }} ({{ loc.countryCode }})</button>
+        {{ loc }}
+      </li>
+    </ul>
+  </section>
 </template>
 
 <script setup lang="ts">

@@ -11,6 +11,7 @@ declare module 'vue' {
     BrandingLogo: typeof import('./components/BrandingLogo.vue')['default']
     FavoriteLocationItem: typeof import('./components/FavoriteLocations/FavoriteLocationItem.vue')['default']
     FavoriteLocations: typeof import('./components/FavoriteLocations/FavoriteLocations.vue')['default']
+    SelectedLocation: typeof import('./components/SelectedLocation.vue')['default']
     WeatherSearch: typeof import('./components/WeatherSearch.vue')['default']
   }
 }
