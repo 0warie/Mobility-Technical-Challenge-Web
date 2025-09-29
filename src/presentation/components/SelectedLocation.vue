@@ -37,7 +37,14 @@
 import { storeToRefs } from 'pinia';
 import { useWeatherStore } from '../stores/weather';
 import { sentenceCase } from 'change-case';
+import { onMounted } from 'vue';
 
 const weather = useWeatherStore();
 const { selectedLocation } = storeToRefs(weather);
+
+onMounted(() => {
+  // Select perth on page load
+  // TODO: Store last selected city in session storage
+  weather.selectByCityId(2063523);
+});
 </script>
