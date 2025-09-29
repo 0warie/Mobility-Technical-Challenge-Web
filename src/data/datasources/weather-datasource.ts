@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useConfig } from '@/composables/config';
-import type { SavedLocationModel } from '../models/saved-location';
+import type { SavedLocationModel } from '../models/saved-location-model';
 
 const config = useConfig();
 

@@ -1,5 +1,5 @@
 import { WeatherDataSource } from '@/data/datasources/weather-datasource';
-import type { SavedLocationModel } from '@/data/models/saved-location';
+import type { SavedLocationModel } from '@/data/models/saved-location-model';
 import { defineStore } from 'pinia';
 import { ref } from 'vue';
 

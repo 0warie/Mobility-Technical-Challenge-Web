@@ -18,6 +18,7 @@ export default defineConfig({
     vueDevTools(),
     tailwindcss(),
     components({
+      dirs: ['src/presentation/components'],
       dts: 'src/components.d.ts',
     }),
   ],

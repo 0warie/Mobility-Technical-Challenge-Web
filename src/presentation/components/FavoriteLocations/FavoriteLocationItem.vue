@@ -9,7 +9,7 @@
 
 <script setup lang="ts">
 import { getFlagEmoji } from '@/common/helpers/get-flag-emoji';
-import type { SavedLocationModel } from '@/data/models/saved-location';
+import type { SavedLocationModel } from '@/data/models/saved-location-model';
 
 const props = defineProps<{
   item: SavedLocationModel;

@@ -11,7 +11,7 @@
 
 <script setup lang="ts">
 import { onMounted } from 'vue';
-import { useWeatherStore } from '@/stores/weather';
+import { useWeatherStore } from '@/presentation/stores/weather';
 import { storeToRefs } from 'pinia';
 
 const weather = useWeatherStore();
