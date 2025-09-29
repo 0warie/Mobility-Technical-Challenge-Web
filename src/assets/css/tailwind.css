@@ -27,3 +27,7 @@
   --color-grey-800: #24283b;
   --color-grey-900: #1a1b26;
 }
+
+button {
+  cursor: pointer;
+}

@@ -17,7 +17,8 @@ export class WeatherDataSource {
   }
 
   async getDirectGeocode(query: string) {
-    const { data } = await apiAxios.get<GeocodeModel>(`geocode/direct?q=${query}`);
+    console.debug('got here');
+    const { data } = await apiAxios.get<GeocodeModel[]>(`geocode/direct?q=${query}`);
 
     return data;
   }

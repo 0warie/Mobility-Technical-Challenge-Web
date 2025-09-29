@@ -1,12 +1,51 @@
 <template>
-  <div class="flex flex-row">
-    <input
-      type="text"
-      placeholder="Search City"
-      class="bg-white py-1 px-3 text-black flex w-[370px] -outline-offset-4 rounded-l-lg"
-    />
-    <button class="h-full px-3 bg-grey-700 rounded-r-lg">Search</button>
+  <div class="flex flex-col">
+    <div class="grid grid-cols-[auto_min-content] sm:w-min h-full">
+      <input
+        type="text"
+        placeholder="Search City"
+        v-model="search"
+        class="bg-white py-1 px-3 sm:w-[400px] w-full text-black flex grow -outline-offset-4 rounded-l-lg"
+        :class="{ 'rounded-b-none!': showDropdown }"
+      />
+      <button @click="onSearch" class="px-3 bg-grey-700 rounded-r-lg">Search</button>
+      <div class="relative">
+        <div
+          v-if="showDropdown"
+          class="bg-white rounded-b-lg absolute w-full text-black sm:w-[400px]"
+        >
+          <ul>
+            <li v-for="(result, index) in results" :key="index">
+              <button class="h-10 w-full hover:bg-grey-100 flex items-center px-3">
+                {{ result.name }}, {{ result.country }} {{ getFlagEmoji(result.country) }}
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { storeToRefs } from 'pinia';
+import { useGeocodeStore } from '../stores/geocode';
+import { computed } from 'vue';
+import { getFlagEmoji } from '@/common/helpers/get-flag-emoji';
+import { ref } from 'vue';
+
+const geocode = useGeocodeStore();
+const { results } = storeToRefs(geocode);
+
+const search = ref('');
+
+const showDropdown = computed(() => {
+  return results.value && results.value.length > 0;
+});
+
+const onSearch = () => {
+  console.debug(search.value);
+  if (search.value.length === 0) return;
+  geocode.directGeocode(search.value);
+};
+</script>

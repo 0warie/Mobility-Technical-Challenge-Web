@@ -30,20 +30,17 @@ const onSelect = () => {
   emit('select', props.item);
 };
 
-const buttonVariant = cva(
-  'rounded-lg text-white py-6 px-4 flex flex-col basis-0 shrink grow cursor-pointer',
-  {
-    variants: {
-      selected: {
-        false: 'bg-gray-600',
-        true: 'bg-blue-muted',
-      },
+const buttonVariant = cva('rounded-lg text-white py-6 px-4 flex flex-col basis-0 shrink grow', {
+  variants: {
+    selected: {
+      false: 'bg-gray-600',
+      true: 'bg-blue-muted',
     },
-    defaultVariants: {
-      selected: false,
-    },
-  }
-);
+  },
+  defaultVariants: {
+    selected: false,
+  },
+});
 </script>
 
 <style lang="css" scoped>
