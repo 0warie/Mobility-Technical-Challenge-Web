@@ -19,7 +19,7 @@ const weather = useWeatherStore();
 const { savedLocations } = storeToRefs(weather);
 
 const onSelect = (location: SavedLocationModel) => {
-  weather.selectByCityId(location.id);
+  weather.selectByCityId(location.cityId);
 };
 
 onMounted(weather.loadSavedLocations);
