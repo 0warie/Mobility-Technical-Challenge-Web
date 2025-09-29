@@ -50,7 +50,7 @@ const showDropdown = computed(() => {
 });
 
 const onSearch = () => {
-  if (search.value.length <= 3) {
+  if (search.value.length <= 1) {
     geocode.clearGeocode();
     return;
   }
