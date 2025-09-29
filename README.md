@@ -1,6 +1,8 @@
-# Mobility Technical Challenge Web
+# Mobility Technical Challenge – Web
 
-This template should help get you started developing with Vue 3 in Vite.
+This repository contains the Vue.js front-end portion of the Mobility Technical Challenge.
+
+![Project showcase](./.docs/showcase.png)
 
 ## Recommended IDE Setup
 
