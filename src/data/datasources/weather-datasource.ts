@@ -8,7 +8,7 @@ const apiAxios = axios.create({
   baseURL: config.api,
 });
 
-export class DataSource {
+export class WeatherDataSource {
   async getSavedLocations() {
     const { data } = await apiAxios.get<SavedLocationModel[]>('locations');
 

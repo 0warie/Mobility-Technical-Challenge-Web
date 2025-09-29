@@ -2,25 +2,20 @@
   <section class="flex flex-col gap-4">
     <h3 class="text-2xl font-bold">Favorites</h3>
     <ul class="flex flex-row gap-3 flex-wrap">
-      <li v-for="loc in locations" :key="loc.id">
-        <favorite-location-item :item="loc" />
+      <li v-for="location in savedLocations" :key="location.id">
+        <favorite-location-item :item="location" />
       </li>
     </ul>
   </section>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
-import { DataSource } from '@/data/datasources/datasource';
-import type { SavedLocationModel } from '@/data/models/saved-location';
+import { onMounted } from 'vue';
+import { useWeatherStore } from '@/stores/weather';
+import { storeToRefs } from 'pinia';
 
-const datasource = new DataSource();
+const weather = useWeatherStore();
+const { savedLocations } = storeToRefs(weather);
 
-const locations = ref<SavedLocationModel[] | null>(null);
-
-async function loadSaved() {
-  locations.value = await datasource.getSavedLocations();
-}
-
-onMounted(loadSaved);
+onMounted(weather.loadSavedLocations);
 </script>
