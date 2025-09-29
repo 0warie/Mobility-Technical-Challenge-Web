@@ -13,8 +13,13 @@ export const useGeocodeStore = defineStore('geocode', () => {
     results.value = await weatherDatasource.getDirectGeocode(query);
   }
 
+  function clearGeocode() {
+    results.value = [];
+  }
+
   return {
-    directGeocode,
     results,
+    directGeocode,
+    clearGeocode,
   };
 });

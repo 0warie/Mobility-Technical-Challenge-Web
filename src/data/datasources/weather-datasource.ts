@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useConfig } from '@/composables/config';
 import type { WeatherModel } from '../models/weather-model';
 import type { GeocodeModel } from '../models/geocode-model';
+import type { Coordinates } from '@/common/types/coordinates';
 
 const config = useConfig();
 
@@ -10,6 +11,14 @@ const apiAxios = axios.create({
 });
 
 export class WeatherDataSource {
+  async getWeatherByCoordinates(coordinates: Coordinates) {
+    const { data } = await apiAxios.get<WeatherModel>(
+      `weather/current?lat=${coordinates.lat}&lon=${coordinates.lon}`
+    );
+
+    return data;
+  }
+
   async getWeatherById(cityId: number) {
     const { data } = await apiAxios.get<WeatherModel>(`weather/current-by-id?cityId=${cityId}`);
 
@@ -17,7 +26,6 @@ export class WeatherDataSource {
   }
 
   async getDirectGeocode(query: string) {
-    console.debug('got here');
     const { data } = await apiAxios.get<GeocodeModel[]>(`geocode/direct?q=${query}`);
 
     return data;

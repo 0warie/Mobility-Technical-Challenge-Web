@@ -1,3 +1,4 @@
+import type { Coordinates } from '@/common/types/coordinates';
 import { LocationsDataSource } from '@/data/datasources/locations-datasource';
 import { WeatherDataSource } from '@/data/datasources/weather-datasource';
 import type { SavedLocationModel } from '@/data/models/saved-location-model';
@@ -21,10 +22,15 @@ export const useWeatherStore = defineStore('weather', () => {
     selectedLocation.value = await weatherDatasource.getWeatherById(id);
   }
 
+  async function selectByCoordinates(coordinates: Coordinates) {
+    selectedLocation.value = await weatherDatasource.getWeatherByCoordinates(coordinates);
+  }
+
   return {
     selectedLocation,
     savedLocations,
     loadSavedLocations,
     selectByCityId,
+    selectByCoordinates,
   };
 });

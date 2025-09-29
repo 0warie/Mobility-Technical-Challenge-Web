@@ -12,11 +12,14 @@
       <div class="relative">
         <div
           v-if="showDropdown"
-          class="bg-white rounded-b-lg absolute w-full text-black sm:w-[400px]"
+          class="bg-white rounded-b-lg absolute w-full text-black sm:w-[400px] overflow-hidden"
         >
           <ul>
             <li v-for="(result, index) in results" :key="index">
-              <button class="h-10 w-full hover:bg-grey-100 flex items-center px-3">
+              <button
+                @click="onSelect(result)"
+                class="h-10 w-full hover:bg-grey-100 flex items-center px-3"
+              >
                 {{ result.name }}, {{ result.country }} {{ getFlagEmoji(result.country) }}
               </button>
             </li>
@@ -33,8 +36,11 @@ import { useGeocodeStore } from '../stores/geocode';
 import { computed } from 'vue';
 import { getFlagEmoji } from '@/common/helpers/get-flag-emoji';
 import { ref } from 'vue';
+import type { GeocodeModel } from '@/data/models/geocode-model';
+import { useWeatherStore } from '../stores/weather';
 
 const geocode = useGeocodeStore();
+const weather = useWeatherStore();
 const { results } = storeToRefs(geocode);
 
 const search = ref('');
@@ -44,8 +50,12 @@ const showDropdown = computed(() => {
 });
 
 const onSearch = () => {
-  console.debug(search.value);
   if (search.value.length === 0) return;
   geocode.directGeocode(search.value);
+};
+
+const onSelect = async (result: GeocodeModel) => {
+  await weather.selectByCoordinates(result.coordinates);
+  geocode.clearGeocode();
 };
 </script>
