@@ -1,5 +1,7 @@
 export interface WeatherModel {
   cityId: number;
+  city: string;
+  countryCode: string;
   coordinates: {
     latitude: number;
     longitude: number;

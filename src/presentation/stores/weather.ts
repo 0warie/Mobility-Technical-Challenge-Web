@@ -20,6 +20,7 @@ export const useWeatherStore = defineStore('weather', () => {
   }
 
   return {
+    selectedLocation,
     savedLocations,
     loadSavedLocations,
     selectByCityId,

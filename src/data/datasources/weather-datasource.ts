@@ -20,7 +20,7 @@ export class WeatherDataSource {
   }
 
   async getWeatherById(cityId: number) {
-    const { data } = await apiAxios.get<WeatherModel>(`weather/current-by-id?${cityId}`);
+    const { data } = await apiAxios.get<WeatherModel>(`weather/current-by-id?cityId=${cityId}`);
 
     return data;
   }
