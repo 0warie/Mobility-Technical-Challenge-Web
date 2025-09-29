@@ -16,11 +16,11 @@ const props = defineProps<{
 }>();
 
 const emit = defineEmits<{
-  (e: 'select', id: number): void;
+  (e: 'select', item: SavedLocationModel): void;
 }>();
 
 const onSelect = () => {
-  emit('select', props.item.cityId);
+  emit('select', props.item);
 };
 </script>
 
