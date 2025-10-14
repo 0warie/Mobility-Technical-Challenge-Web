@@ -1,6 +1,6 @@
 # ForecastIQ – Web
 
-This repository contains the Vue.js front-end for the this portfolio project
+This repository contains the Vue.js front-end for this portfolio project
 
 ![Project showcase](./.docs/showcase.png)
 
